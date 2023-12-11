@@ -1,0 +1,21 @@
+{
+  "name": "@nagisham/standard",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "",
+  "keywords": [
+    "core"
+  ],
+  "author": "Evgeniy Nage Nikulin (https://github.com/at-nage)",
+  "homepage": "https://github.com/nagisham/standard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagisham/standard.git"
+  },
+  "license": "MIT",
+  "main": "standard/index.js",
+  "types": "standard/index.d.ts",
+  "scripts": {
+    "push": "npm publish --access=public"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@nagisham/standard",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "keywords": [
+    "std",
+    "standard"
+  ],
+  "author": "Evgeniy Nage Nikulin (https://github.com/at-nage)",
+  "homepage": "https://github.com/nagisham/standard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagisham/standard.git"
+  },
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --clean --outDir package/standard --format esm --dts --minify --sourcemap",
+    "lint": "tsc"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}
