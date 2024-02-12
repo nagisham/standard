@@ -1,2 +1,2 @@
-export { Record } from './implementation';
-export { TypeOfMap, Assine } from './types';
+export { Record } from "./record";
+export type { Assine, TypeOfMap } from "./types";

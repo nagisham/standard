@@ -1,7 +1,14 @@
-import { Lambda } from 'src/Functions';
+import { Lambda } from "src/functions";
+import { Expand } from "src/types/globals";
 
-import { Expand } from 'src/types/globals';
-
-export type Struct<C extends Lambda, E extends Lambda> = Expand<
-  (...args: [...Parameters<E>, ...Parameters<C>]) => ReturnType<E> & ReturnType<C>
+type Struct<C extends Lambda, E extends Lambda> = Expand<
+	(...args: [...Parameters<E>, ...Parameters<C>]) => ReturnType<E> & ReturnType<C>
 >;
+
+export interface StructConstructor {
+	<CONSTRUCTOR extends Lambda>(implementation: CONSTRUCTOR): CONSTRUCTOR;
+	<CONSTRUCTOR extends Lambda, EXTEND extends Lambda>(
+		implementation: CONSTRUCTOR,
+		extend?: EXTEND,
+	): Struct<CONSTRUCTOR, EXTEND>;
+}

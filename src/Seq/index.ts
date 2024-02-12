@@ -1,1 +1,1 @@
-export { Seq } from './implementation';
+export { Seq } from "./seq";

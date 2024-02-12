@@ -1,3 +1,3 @@
-export { combine } from './combine';
-export * from './is';
-export { unpack } from './unpack';
+export * from "./combine";
+export * from "./is";
+export * from "./unpack";

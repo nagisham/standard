@@ -14,13 +14,15 @@
     "url": "git+https://github.com/nagisham/standard.git"
   },
   "license": "MIT",
-  "main": "src/index.ts",
   "scripts": {
-    "build": "tsup src/index.ts --clean --outDir package/standard --format esm --dts --minify --sourcemap",
-    "lint": "tsc"
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "devDependencies": {
+    "terser": "^5.27.0",
     "tsup": "^8.0.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
   }
 }

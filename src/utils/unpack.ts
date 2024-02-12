@@ -1,6 +1,10 @@
-import { Lambda } from 'src';
-import { is_function } from './is';
+import { Lambda } from "src";
 
-export function unpack<V, A extends any[]>(value: V | Lambda<A, V>, ...args: A) {
-  return is_function(value) ? value(...args) : value;
+import { is_function } from "./is";
+
+export function unpack<VALUE, ARGS extends any[]>(
+	value: VALUE | Lambda<ARGS, VALUE>,
+	...args: ARGS
+) {
+	return is_function(value) ? value(...args) : value;
 }

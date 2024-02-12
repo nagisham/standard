@@ -1,2 +1,1 @@
-export { struct } from './implementation';
-export { Struct } from './types';
+export { struct } from "./struct";

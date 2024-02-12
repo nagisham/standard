@@ -1,1 +1,1 @@
-export { pipe } from './implementation';
+export { pipe } from "./pipe";
