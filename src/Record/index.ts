@@ -1,2 +1,2 @@
 export { Record } from "./record";
-export type { Assine, TypeOfMap } from "./types";
+export type { Assign, TypeOfMap } from "./types";

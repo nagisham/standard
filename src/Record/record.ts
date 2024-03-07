@@ -1,10 +1,10 @@
 import { Lambda } from "src/functions";
 
-import { Assine, TypeOfMap } from "./types";
+import { Assign, TypeOfMap } from "./types";
 
 export namespace Record {
 	export function assign<T, U>(target: T, source: U) {
-		return Object.assign(target ?? {}, source) as Assine<T, U>;
+		return Object.assign(target ?? {}, source) as Assign<T, U>;
 	}
 
 	export function getConstructor(u: unknown): Lambda {

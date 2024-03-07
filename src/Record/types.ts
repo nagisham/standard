@@ -9,4 +9,4 @@ export type TypeOfMap = {
 	function: Lambda;
 };
 
-export type Assine<T, U> = T extends undefined ? T : Omit<NonNullable<T>, keyof U> & U;
+export type Assign<T, U> = T extends undefined ? T : Omit<NonNullable<T>, keyof U> & U;

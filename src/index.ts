@@ -11,7 +11,7 @@ export {
 } from "./providers";
 export type { Provider } from "./providers";
 export { Record } from "./record";
-export type { Assine, TypeOfMap } from "./record";
+export type { Assign, TypeOfMap } from "./record";
 export { Seq } from "./seq";
 export { struct } from "./struct";
 
