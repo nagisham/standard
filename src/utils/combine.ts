@@ -1,7 +1,7 @@
-import { Lambda } from 'src';
+import { Functions, Lambda } from "src";
 
-export function combine(...functions: (Lambda<[], void> | undefined)[]) {
-  return () => {
-    functions.forEach((func) => func?.());
-  };
+export function combine(...functions: Array<Lambda<[], void> | undefined>) {
+	return () => {
+		functions.forEach(Functions.call);
+	};
 }

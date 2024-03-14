@@ -1,11 +1,11 @@
 import { Lambda } from "src";
 
 export function is_null<T>(value: T | null | undefined): value is null | undefined {
-	return value === undefined || value === null;
+	return typeof value === "undefined" || value === null;
 }
 
 export function is_not_null<T>(value: T | null | undefined): value is T {
-	return !is_null(value);
+	return typeof value !== "undefined" && value !== null;
 }
 
 export function is_boolean<A>(value: A | boolean): value is boolean {

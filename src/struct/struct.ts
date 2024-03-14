@@ -1,6 +1,7 @@
 import { Lambda } from "src/functions";
 import { Record } from "src/record";
 import { Seq } from "src/seq";
+import { is_not_null } from "src/utils/is";
 
 import { StructConstructor } from "./types";
 
@@ -35,7 +36,7 @@ export const struct: StructConstructor = <CONSTRUCTOR extends Lambda, EXTEND ext
 		},
 	});
 
-	if (extend) {
+	if (is_not_null(extend)) {
 		Object.setPrototypeOf(Struct, extend.prototype);
 		Object.setPrototypeOf(Struct.prototype, extend.prototype);
 	}

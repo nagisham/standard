@@ -1,11 +1,13 @@
 import { Lambda } from "./types";
 
 export namespace Functions {
-	export function call<R>(lambda: Lambda<[], R>) {
-		return lambda();
+	export function call(lambda: Lambda<[], void> | undefined): void;
+	export function call<R>(lambda: Lambda<[], R>): R;
+	export function call<R>(lambda: Lambda<[], R> | undefined) {
+		return lambda?.();
 	}
 
-	export function togle(boolean: boolean) {
+	export function toggle(boolean: boolean) {
 		return !boolean;
 	}
 }
