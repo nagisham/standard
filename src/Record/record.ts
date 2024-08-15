@@ -1,12 +1,40 @@
-import { Lambda } from "src/functions";
+import { Lambda } from "src/lambda";
 
-import { Assine, TypeOfMap } from "./types";
+import { Assign, TypeOfMap } from "./types";
+import { is_array, is_not_undefined, is_object } from "src/is";
 
 export namespace Record {
-	export function assign<T, U>(target: T, source: U) {
-		return Object.assign(target ?? {}, source) as Assine<T, U>;
-	}
+	export function assign<T extends Record<string, any>>(target: T, source: T) : T;
+	export function assign<T extends Record<string, any>, U extends Record<string, any>>(target: T, source: U) : Assign<T, U>;
+	export function assign(target: Record<string, any>, source: Record<string, any>) {
+		const fresh: Record<string, any> = {}
+	
+		for (const key of Record.keys(target, source)) {
+			const left = target[key];
+			const right = source[key];
+		
+			if (is_array(left) && is_array(right)) {
+				fresh[key] = [...left, ...right];
+				continue;
+			}
+	
+			if (is_object(left) && is_object(right)) {
+				fresh[key] = assign(left, right);
+				continue;
+			}
 
+			if (is_not_undefined(left)) {
+				fresh[key] = right;
+			}
+
+			if (is_not_undefined(right)) {
+				fresh[key] = right;
+			}
+		}
+	
+		return fresh;
+	}
+	
 	export function getConstructor(u: unknown): Lambda {
 		return Object.getPrototypeOf(u).constructor;
 	}
@@ -18,8 +46,16 @@ export namespace Record {
 		return Object.setPrototypeOf(record, constructor.prototype);
 	}
 
-	export const keys = <T extends object>(object: T) => {
-		return Object.keys(object) as (keyof T)[];
+	export const keys = (...objects: object[]) => {
+		const set = new Set<string>();
+
+		for (const object of objects) {
+			for (const key of Object.keys(object)) {
+				set.add(key);
+			}
+		}
+
+		return Array.from(set);
 	};
 
 	export function has<K extends keyof any>(

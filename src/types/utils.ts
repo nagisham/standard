@@ -1,4 +1,4 @@
-import { Lambda } from "src/functions";
+import { Lambda } from "src/lambda";
 
 export type NonFunctionKeys<T> = Exclude<
 	{

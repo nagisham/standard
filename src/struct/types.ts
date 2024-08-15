@@ -1,4 +1,4 @@
-import { Lambda } from "src/functions";
+import { Lambda } from "src/lambda";
 import { Expand } from "src/types/globals";
 
 type Struct<C extends Lambda, E extends Lambda> = Expand<

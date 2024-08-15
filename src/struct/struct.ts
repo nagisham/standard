@@ -1,4 +1,4 @@
-import { Lambda } from "src/functions";
+import { Lambda } from "src/lambda";
 import { Record } from "src/record";
 import { Seq } from "src/seq";
 
